@@ -27,7 +27,7 @@ for (let copy of copys) {
   });
 }
 
-// Traverse technique function
+// Traverse technique  function
 const cardTextBtn = document.getElementsByClassName("card-btn");
 for (let cardText of cardTextBtn) {
   cardText.addEventListener("click", function () {
@@ -36,13 +36,32 @@ for (let cardText of cardTextBtn) {
 
     const h1Text =
       cardText.parentNode.parentNode.children[1].children[0].innerText;
+    const subTitle =
+      cardText.parentNode.parentNode.children[1].children[1].innerText;
     const number =
       cardText.parentNode.parentNode.children[2].children[0].innerText;
+
+    // 20 Coin Substract
+    const spanCoin = document.getElementById("spnCoin");
+
+    const coinSub = spanCoin;
+    let nowCoinSub = parseInt(coinSub.innerText);
+
+    if (nowCoinSub <= 0) {
+      alert("❌ আপনার পর্যাপ্ত কয়েন নেই!  কল করতে কমপক্ষে ২০ কয়েন লাগবে।");
+      return;
+    }
+    nowCoinSub -= 20;
+
+    spanCoin.innerText = nowCoinSub;
+
+    // Call Alert
+    alert(`📞 Calling ${subTitle} ${number}...`);
 
     // Local Time
     const nowTime = new Date();
     const localTimes = nowTime.toLocaleString("en-US", {
-      //   timeZone: "Asia/Dhaka",
+      timeZone: "Asia/Dhaka",
       hour: "numeric",
       minute: "numeric",
       second: "numeric",
@@ -62,8 +81,6 @@ for (let cardText of cardTextBtn) {
   `;
 
     cartContainer.appendChild(newCart);
-
-    // Copy to Clipboard
   });
 }
 
