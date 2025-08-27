@@ -8,9 +8,6 @@ for (let CopyText of cardCopyBtn) {
     // Copy to Clipboard
     navigator.clipboard.writeText(number);
 
-    // const getCopyText = document.getElementById("copyText").innerText;
-
-    // console.log(getCopyText);
-    //    alert(getCopyText);
+    alert(`নম্বর কপি হয়েছে :${number}`);
   });
 }
