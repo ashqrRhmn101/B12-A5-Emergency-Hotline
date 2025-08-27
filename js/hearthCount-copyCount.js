@@ -1,28 +1,26 @@
-// Heart Count
-function getHeartCount(id) {
-  document.getElementById(id).addEventListener("click", function () {
-    const spnHearth = document.getElementById("spnHeartCount");
+// Traverse technique Hearth Count function
+const hearths = document.getElementsByClassName("clickHearth");
+for (let hearth of hearths) {
+  hearth.addEventListener("click", function () {
 
-    const hearthCount = spnHearth;
+    // const spnHearth = hearth.parentNode.children[1].children[0];
+
+    const spanHearth = document.getElementById("spnHeartCount");
+
+    const hearthCount = spanHearth;
     let newHearthCount = parseInt(hearthCount.innerText);
     newHearthCount++;
 
-    spnHearth.innerText = newHearthCount;
+    spanHearth.innerText = newHearthCount;
   });
 }
 
-//  card 1
-getHeartCount("clickHearth");
-// //  card 2
-getHeartCount("clickHearth2");
-// //  card 3
-getHeartCount("clickHearth3");
-// //  card 4
-// getHeartCount("clickHearth4");
 
-// Copy Count
-function getCopyCount(id) {
-  document.getElementById(id).addEventListener("click", function () {
+// Traverse technique Copy Count function
+const copys = document.getElementsByClassName("spnCopyCount");
+for (let copy of copys) {
+  copy.addEventListener("click", function () {
+
     const spanCopy = document.getElementById("spnCopy");
 
     const copyCounts = spanCopy;
@@ -30,21 +28,9 @@ function getCopyCount(id) {
     newCopyCount++;
     spanCopy.innerText = newCopyCount;
 
-    // Copy Text1
-    const copyTextInner = document.getElementById("copyText").innerText;
+    // const getCopyText = document.getElementById("copyText").innerText;
 
-    navigator.clipboard.writeText(copyTextInner);
-    // Copy Text2
-    const copyTextInner2 = document.getElementById("copyText2").innerText;
-
-    navigator.clipboard.writeText(copyTextInner2);
-
+    // console.log(getCopyText);
+    //    alert(getCopyText);
   });
 }
-
-// card 1
-getCopyCount("spnCopyCount");
-// card 2
-getCopyCount("spnCopyCount2");
-// card 3
-getCopyCount("spnCopyCount3");
